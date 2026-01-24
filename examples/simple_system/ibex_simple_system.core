@@ -159,7 +159,7 @@ targets:
 
   sim:
     <<: *default_target
-    default_tool: verilator
+    default_tool: vcs
     tools:
       vcs:
         vcs_options:

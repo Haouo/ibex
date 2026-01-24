@@ -159,6 +159,35 @@ targets:
     toplevel: ibex_top
     parameters:
       - tool_vivado ? (FPGA_XILINX=true)
+  synth:
+    filesets:
+      - files_rtl
+    toplevel: ibex_top
+    parameters:
+      - RV32E
+      - RV32M
+      - RV32B
+      - RegFile
+      - ICache
+      - ICacheScramble
+      - ICacheECC
+      - BranchTargetALU
+      - WritebackStage
+      - SecureIbex
+      - BranchPredictor
+      - DbgTriggerEn
+      - PMPEnable
+      - PMPGranularity
+      - PMPNumRegions
+      - MHPMCounterNum
+      - MHPMCounterWidth
+    default_tool: design_compiler
+    tools:
+      design_compiler:
+        script_dir: "/home/aislab/workspace/ibex/syn/dc"
+        dc_script: "synthesis.tcl"
+        report_dir: "/home/aislab/workspace/ibex/syn/dc/report" 
+        jobs: 16
   lint:
     <<: *default_target
     parameters:

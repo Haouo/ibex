@@ -177,6 +177,9 @@ targets:
       - SYNTHESIS=true
       - RVFI=true
     default_tool: verilator
+    parameters:
+      - SYNTHESIS=true
+      - RVFI=false
     tools:
       verilator:
         mode: lint-only
